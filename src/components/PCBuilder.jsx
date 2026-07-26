@@ -11,7 +11,7 @@ export default function PCBuilder() {
   const themes = {
     red: {
       name: "Crimson ROG Red",
-      image: "/images/pc_case_red.png",
+      image: "/images/pc_case_red.webp",
       glowColor: "rgba(227, 0, 22, 0.4)",
       borderColor: "border-rog-red",
       textColor: "text-rog-red",
@@ -20,7 +20,7 @@ export default function PCBuilder() {
     },
     blue: {
       name: "Electric Cyber Blue",
-      image: "/images/pc_case_blue.png",
+      image: "/images/pc_case_blue.webp",
       glowColor: "rgba(0, 229, 255, 0.4)",
       borderColor: "border-electric-cyan",
       textColor: "text-electric-cyan",
@@ -29,7 +29,7 @@ export default function PCBuilder() {
     },
     purple: {
       name: "Vibrant Neon Purple",
-      image: "/images/pc_case_purple.png",
+      image: "/images/pc_case_purple.webp",
       glowColor: "rgba(157, 78, 221, 0.4)",
       borderColor: "border-cyber-purple",
       textColor: "text-cyber-purple",

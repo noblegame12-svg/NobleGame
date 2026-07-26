@@ -144,7 +144,7 @@ export default function PricingBuilds({ onBuyBuild }) {
                 id: build.id,
                 name: build.name,
                 price: build.price,
-                image: "/images/pc_case_red.png", // fallback case image
+                image: "/images/pc_case_red.webp", // fallback case image
                 category: "PC Builds",
                 qty: 1
               })}

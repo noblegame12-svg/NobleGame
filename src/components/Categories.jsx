@@ -12,7 +12,7 @@ export default function Categories() {
     { 
       id: "cat-box", 
       title: t("categories.box.title"), 
-      image: "/categories/Box.png", 
+      image: "/Categories/Box.webp", 
       tagline: t("categories.box.tagline"), 
       glowColor: "rgba(227, 0, 22, 0.4)", 
       description: t("categories.box.description") 
@@ -20,7 +20,7 @@ export default function Categories() {
     { 
       id: "cat-console", 
       title: t("categories.console.title"), 
-      image: "/categories/Console.png", 
+      image: "/Categories/Console.webp", 
       tagline: t("categories.console.tagline"), 
       glowColor: "rgba(0, 229, 255, 0.4)", 
       description: t("categories.console.description") 
@@ -28,7 +28,7 @@ export default function Categories() {
     { 
       id: "cat-dualshock", 
       title: t("categories.dualshock.title"), 
-      image: "/categories/Dualshock.png", 
+      image: "/Categories/Dualshock.webp", 
       tagline: t("categories.dualshock.tagline"), 
       glowColor: "rgba(157, 78, 221, 0.4)", 
       description: t("categories.dualshock.description") 
@@ -36,7 +36,7 @@ export default function Categories() {
     { 
       id: "cat-monitor", 
       title: t("categories.monitor.title"), 
-      image: "/categories/Monitor.png", 
+      image: "/Categories/Monitor.webp", 
       tagline: t("categories.monitor.tagline"), 
       glowColor: "rgba(16, 185, 129, 0.4)", 
       description: t("categories.monitor.description") 

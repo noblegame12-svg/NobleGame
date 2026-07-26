@@ -4,12 +4,12 @@ import { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 
 const covers = [
-  { id: "game-gow",     key: "gow",    name: "God of War Ragnarök",   src: "/images/covers/gow.png" },
-  { id: "game-cyber",   key: "cyber",  name: "Cyberpunk 2077",         src: "/images/covers/cyberpunk.png" },
-  { id: "game-elden",   key: "elden",  name: "Elden Ring",             src: "/images/covers/elden_ring.png" },
-  { id: "game-horizon", key: "horizon", name: "Horizon Forbidden West", src: "/images/covers/horizon.png" },
-  { id: "game-racing",  key: "racing",  name: "Gran Turismo 7",         src: "/images/covers/racing.png" },
-  { id: "game-ghost",   key: "ghost",   name: "Ghost of Tsushima",      src: "/images/covers/samurai.png" },
+  { id: "game-gow",     key: "gow",    name: "God of War Ragnarök",   src: "/images/covers/gow.webp" },
+  { id: "game-cyber",   key: "cyber",  name: "Cyberpunk 2077",         src: "/images/covers/cyberpunk.webp" },
+  { id: "game-elden",   key: "elden",  name: "Elden Ring",             src: "/images/covers/elden_ring.webp" },
+  { id: "game-horizon", key: "horizon", name: "Horizon Forbidden West", src: "/images/covers/horizon.webp" },
+  { id: "game-racing",  key: "racing",  name: "Gran Turismo 7",         src: "/images/covers/racing.webp" },
+  { id: "game-ghost",   key: "ghost",   name: "Ghost of Tsushima",      src: "/images/covers/samurai.webp" },
 ];
 
 export default function DualSensePromo({ onAddToCart }) {
@@ -42,7 +42,7 @@ export default function DualSensePromo({ onAddToCart }) {
       {/* Background image — DualSense controller */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
-        style={{ backgroundImage: "url('/Dualsense.png')" }}
+        style={{ backgroundImage: "url('/Dualsense.webp')" }}
       />
 
       {/* Left gradient to darken over controller background on desktop */}

@@ -19,7 +19,7 @@ export default function Footer() {
         {/* Brand Block */}
         <div className="lg:col-span-4 space-y-4">
           <a href="#" className="flex items-center gap-3 group" id="footer-logo">
-            <img src="/Noble Game White.png" alt="Noble Game Logo" className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
+            <img src="/Noble Game White.webp" alt="Noble Game Logo" className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
             <span className="font-display font-black text-lg lg:text-xl tracking-tighter text-white uppercase transition-colors duration-300 group-hover:text-white/90">
               Noble Game
             </span>

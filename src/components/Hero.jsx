@@ -11,7 +11,7 @@ export default function Hero({ onShopClick }) {
 
   useEffect(() => {
     const img = new window.Image();
-    img.src = "/images/gaming_suitcase.png";
+    img.src = "/images/gaming_suitcase.webp";
     img.onload = () => {
       const canvas = canvasRef.current;
       if (!canvas) return;
@@ -60,7 +60,7 @@ export default function Hero({ onShopClick }) {
       {/* Background Hero Image */}
       <div
         className="absolute inset-x-0 top-0 bottom-[-100px] bg-cover lg:bg-[position:right_bottom] bg-center bg-no-repeat opacity-80 z-0"
-        style={{ backgroundImage: "url('/Background%20hero%20section.png')" }}
+        style={{ backgroundImage: "url('/Background%20hero%20section.webp')" }}
       ></div>
 
       {/* Dark gradient overlay to fade the left side for text readability */}

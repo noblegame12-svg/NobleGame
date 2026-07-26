@@ -58,7 +58,7 @@ export default function Navbar({ cartCount, onCartToggle }) {
       <nav className="w-full bg-transparent py-4 px-4 sm:px-6 lg:px-16 flex items-center justify-between relative min-h-[70px] sm:min-h-[76px]">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group" id="nav-logo">
-          <img src="/Noble Game White.png" alt="Noble Game Logo" className="h-9 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
+          <img src="/Noble Game White.webp" alt="Noble Game Logo" className="h-9 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
           <span className="font-display font-black text-lg sm:text-xl lg:text-2xl tracking-tighter text-white uppercase transition-colors duration-300 group-hover:text-white/90">
             Noble Game
           </span>

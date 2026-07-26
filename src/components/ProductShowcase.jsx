@@ -97,7 +97,7 @@ export default function ProductShowcase() {
         <div className="relative w-full max-w-6xl aspect-[16/9] flex items-center justify-center py-2 sm:py-4">
           <div className="relative w-full h-full scale-110 sm:scale-115 transition-transform duration-500">
             <Image
-              src="/Product noBG.png"
+              src="/Product noBG.webp"
               alt="Premium Playstation Box Product"
               fill
               className="object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.7)]"

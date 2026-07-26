@@ -14,7 +14,7 @@ export default function FeaturedProducts({ onAddToCart }) {
       category: "MICE",
       subCategory: "Hardware",
       price: 229.00,
-      image: "/images/gaming_mouse.png",
+      image: "/images/gaming_mouse.webp",
       badge: "HOT",
       rating: 5
     },
@@ -24,7 +24,7 @@ export default function FeaturedProducts({ onAddToCart }) {
       category: "HEADSETS",
       subCategory: "Hardware",
       price: 189.00,
-      image: "/images/gaming_headset.png",
+      image: "/images/gaming_headset.webp",
       badge: "SALE",
       rating: 4
     },
@@ -34,7 +34,7 @@ export default function FeaturedProducts({ onAddToCart }) {
       category: "KEYBOARDS",
       subCategory: "Hardware",
       price: 259.00,
-      image: "/images/gaming_keyboard.png",
+      image: "/images/gaming_keyboard.webp",
       badge: "",
       rating: 5
     },
@@ -44,7 +44,7 @@ export default function FeaturedProducts({ onAddToCart }) {
       category: "MICE",
       subCategory: "Hardware",
       price: 219.00,
-      image: "/images/gaming_mouse.png",
+      image: "/images/gaming_mouse.webp",
       badge: "",
       rating: 4
     },
@@ -54,7 +54,7 @@ export default function FeaturedProducts({ onAddToCart }) {
       category: "KEYBOARDS",
       subCategory: "Hardware",
       price: 229.00,
-      image: "/images/gaming_keyboard.png",
+      image: "/images/gaming_keyboard.webp",
       badge: "NEW",
       rating: 5
     },
@@ -64,7 +64,7 @@ export default function FeaturedProducts({ onAddToCart }) {
       category: "MICE",
       subCategory: "Hardware",
       price: 249.00,
-      image: "/images/gaming_mouse.png",
+      image: "/images/gaming_mouse.webp",
       badge: "",
       rating: 5
     },
@@ -74,7 +74,7 @@ export default function FeaturedProducts({ onAddToCart }) {
       category: "HEADSETS",
       subCategory: "Hardware",
       price: 249.00,
-      image: "/images/gaming_headset.png",
+      image: "/images/gaming_headset.webp",
       badge: "SALE",
       rating: 4
     },
@@ -84,7 +84,7 @@ export default function FeaturedProducts({ onAddToCart }) {
       category: "HEADSETS",
       subCategory: "Hardware",
       price: 289.00,
-      image: "/images/gaming_headset.png",
+      image: "/images/gaming_headset.webp",
       badge: "",
       rating: 5
     }
