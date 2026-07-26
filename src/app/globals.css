@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), sans-serif;
+  --font-display: var(--font-orbitron), sans-serif;
+
+  --color-rog-red: #e30016;
+  --color-rog-red-hover: #ff1a35;
+  --color-cyber-purple: #9d4edd;
+  --color-cyber-purple-hover: #b576f7;
+  --color-electric-cyan: #00e5ff;
+  --color-dark-bg: #08080c;
+  --color-dark-card: #111116;
+  --color-dark-card-hover: #161622;
+  --color-dark-border: #1e1e26;
+
+  --animate-pulse-glow: pulse-glow 2s infinite ease-in-out;
+  --animate-scanline: scanline 8s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-scroll-up: scroll-up 20s linear infinite;
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 0.3;
+      text-shadow: 0 0 10px rgba(227, 0, 22, 0.4), 0 0 20px rgba(227, 0, 22, 0.2);
+    }
+    50% {
+      opacity: 1;
+      text-shadow: 0 0 15px rgba(227, 0, 22, 0.8), 0 0 30px rgba(227, 0, 22, 0.4);
+    }
+  }
+  @keyframes scanline {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes scroll-up {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+}
+
+/* Base style extensions */
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-dark-bg);
+}
+
+body {
+  background-color: var(--color-dark-bg);
+  color: #f1f1f3;
+  overflow-x: hidden;
+}
+
+/* Custom Utilities */
+.neon-text-red {
+  text-shadow: 0 0 5px rgba(227, 0, 22, 0.5), 0 0 15px rgba(227, 0, 22, 0.3);
+}
+
+.neon-text-purple {
+  text-shadow: 0 0 5px rgba(157, 78, 221, 0.5), 0 0 15px rgba(157, 78, 221, 0.3);
+}
+
+.neon-text-cyan {
+  text-shadow: 0 0 5px rgba(0, 229, 255, 0.5), 0 0 15px rgba(0, 229, 255, 0.3);
+}
+
+.neon-border-red {
+  box-shadow: 0 0 10px rgba(227, 0, 22, 0.2), inset 0 0 10px rgba(227, 0, 22, 0.1);
+  border: 1px solid rgba(227, 0, 22, 0.3);
+}
+
+.neon-border-purple {
+  box-shadow: 0 0 10px rgba(157, 78, 221, 0.2), inset 0 0 10px rgba(157, 78, 221, 0.1);
+  border: 1px solid rgba(157, 78, 221, 0.3);
+}
+
+.neon-border-cyan {
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.2), inset 0 0 10px rgba(0, 229, 255, 0.1);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+}
+
+.glass-panel {
+  background: rgba(17, 17, 22, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(24, 24, 36, 0.8);
+  border-color: rgba(227, 0, 22, 0.3);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7), 0 0 15px rgba(227, 0, 22, 0.1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #08080c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e1e26;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e30016;
+}
+
+/* Grid overlay background effect */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+}
+
+/* Vertical infinite scroll animation for game cover strip */
+@keyframes vertical-scroll-up {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+.vertical-scroll-track {
+  animation: vertical-scroll-up 18s linear infinite;
+  will-change: transform;
+}
+
