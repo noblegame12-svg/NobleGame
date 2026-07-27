@@ -20,6 +20,15 @@ const alexBrush = Alex_Brush({
 export const metadata = {
   title: "Noble Game - Premium Custom PC Builds & Hardware",
   description: "Experience ultimate performance. Discover Noble Game, high-performance PC components, ready-to-run PC builds, and professional gaming gear.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "192x192" },
+      { url: "/Noble Game.webp", type: "image/webp" }
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-icon.png",
+  },
 };
 
 import { LanguageProvider } from "@/context/LanguageContext";

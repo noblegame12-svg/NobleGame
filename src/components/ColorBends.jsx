@@ -188,7 +188,8 @@ export default function ColorBends({
         renderer.domElement.style.display = 'block';
         container.appendChild(renderer.domElement);
 
-        const clock = new THREE.Clock();
+        let lastTime = performance.now();
+        let elapsedTime = 0;
 
         const handleResize = () => {
             const w = container.clientWidth || 1;
@@ -208,11 +209,13 @@ export default function ColorBends({
         }
 
         const loop = () => {
-            const dt = clock.getDelta();
-            const elapsed = clock.elapsedTime;
-            material.uniforms.uTime.value = elapsed;
+            const now = performance.now();
+            const dt = Math.min((now - lastTime) / 1000, 0.1);
+            lastTime = now;
+            elapsedTime += dt;
+            material.uniforms.uTime.value = elapsedTime;
 
-            const deg = (rotationRef.current % 360) + autoRotateRef.current * elapsed;
+            const deg = (rotationRef.current % 360) + autoRotateRef.current * elapsedTime;
             const rad = (deg * Math.PI) / 180;
             const c = Math.cos(rad);
             const s = Math.sin(rad);
