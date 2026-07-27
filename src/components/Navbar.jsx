@@ -26,11 +26,10 @@ export default function Navbar({ cartCount, onCartToggle }) {
 
   return (
     <header
-      className={`w-full z-50 fixed top-0 left-0 transition-all duration-300 border-none ${
-        isScrolled || isMobileMenuOpen
+      className={`w-full z-50 fixed top-0 left-0 transition-all duration-300 border-none ${isScrolled || isMobileMenuOpen
           ? "bg-[#08080c]/90 backdrop-blur-md shadow-xl py-0"
           : "bg-transparent py-0"
-      }`}
+        }`}
     >
       {/* Top Bar (Desktop) */}
       <div className="hidden md:flex w-full bg-transparent text-[11px] font-sans tracking-widest uppercase text-slate-400 py-3.5 px-6 lg:px-16 justify-between items-center">
@@ -38,11 +37,10 @@ export default function Navbar({ cartCount, onCartToggle }) {
           <div className="flex gap-2 items-center">
             <button
               onClick={() => setLanguage("en")}
-              className={`cursor-pointer transition-colors ${
-                language === "en"
+              className={`cursor-pointer transition-colors ${language === "en"
                   ? "text-rog-red font-bold underline underline-offset-4"
                   : "text-slate-400 hover:text-white"
-              }`}
+                }`}
               id="lang-btn-en"
             >
               EN
@@ -50,11 +48,10 @@ export default function Navbar({ cartCount, onCartToggle }) {
             <span className="text-slate-600">/</span>
             <button
               onClick={() => setLanguage("id")}
-              className={`cursor-pointer transition-colors ${
-                language === "id"
+              className={`cursor-pointer transition-colors ${language === "id"
                   ? "text-rog-red font-bold underline underline-offset-4"
                   : "text-slate-400 hover:text-white"
-              }`}
+                }`}
               id="lang-btn-id"
             >
               ID
@@ -122,22 +119,20 @@ export default function Navbar({ cartCount, onCartToggle }) {
             <div className="flex gap-2 items-center">
               <button
                 onClick={() => setLanguage("en")}
-                className={`px-3 py-1 text-xs font-bold rounded transition-colors ${
-                  language === "en"
+                className={`px-3 py-1 text-xs font-bold rounded transition-colors ${language === "en"
                     ? "bg-rog-red text-white"
                     : "bg-slate-800 text-slate-400 hover:text-white"
-                }`}
+                  }`}
                 id="mobile-lang-en"
               >
                 EN
               </button>
               <button
                 onClick={() => setLanguage("id")}
-                className={`px-3 py-1 text-xs font-bold rounded transition-colors ${
-                  language === "id"
+                className={`px-3 py-1 text-xs font-bold rounded transition-colors ${language === "id"
                     ? "bg-rog-red text-white"
                     : "bg-slate-800 text-slate-400 hover:text-white"
-                }`}
+                  }`}
                 id="mobile-lang-id"
               >
                 ID
@@ -175,7 +170,7 @@ export default function Navbar({ cartCount, onCartToggle }) {
               {t("navbar.faqHelp")}
             </Link>
             <a
-              href="https://wa.me/6281234567890"
+              href="https://wa.me/6282142745084"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}

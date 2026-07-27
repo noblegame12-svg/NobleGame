@@ -6,11 +6,11 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CartDrawer from "@/components/CartDrawer";
 import { useLanguage } from "@/context/LanguageContext";
-import { 
-  ShieldCheck, 
-  Search, 
-  ChevronRight, 
-  HelpCircle, 
+import {
+  ShieldCheck,
+  Search,
+  ChevronRight,
+  HelpCircle,
   MessageCircle,
   Copy,
   Check,
@@ -92,7 +92,7 @@ export default function PanduanPSPage() {
 
       <main className="flex-1 w-full pt-20 sm:pt-28 pb-16 sm:pb-20 relative z-10">
         <div className="w-full max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-16">
-          
+
           {/* Breadcrumb Navigation */}
           <nav className="flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-slate-400 mb-4 sm:mb-6 font-sans">
             <Link href="/" className="hover:text-white transition-colors">
@@ -157,18 +157,16 @@ export default function PanduanPSPage() {
                     setActiveTab(cat.id);
                     setSearchQuery("");
                   }}
-                  className={`flex items-center gap-2 sm:gap-3 px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-xl font-display text-[11px] sm:text-xs font-bold tracking-wider uppercase transition-all whitespace-nowrap cursor-pointer border ${
-                    isActive
+                  className={`flex items-center gap-2 sm:gap-3 px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-xl font-display text-[11px] sm:text-xs font-bold tracking-wider uppercase transition-all whitespace-nowrap cursor-pointer border ${isActive
                       ? "bg-rog-red text-white border-rog-red shadow-lg shadow-rog-red/20 scale-[1.02]"
                       : "bg-slate-900/60 text-slate-400 border-white/5 hover:border-white/20 hover:text-white hover:bg-slate-900"
-                  }`}
+                    }`}
                 >
                   <IconComponent size={14} className={isActive ? "text-white sm:w-4 sm:h-4" : "text-slate-400 sm:w-4 sm:h-4"} />
                   <span>{cat.label}</span>
                   <span
-                    className={`text-[9px] sm:text-[10px] px-1.5 py-0.5 rounded-full font-sans font-normal ${
-                      isActive ? "bg-white/20 text-white" : "bg-slate-800 text-slate-500"
-                    }`}
+                    className={`text-[9px] sm:text-[10px] px-1.5 py-0.5 rounded-full font-sans font-normal ${isActive ? "bg-white/20 text-white" : "bg-slate-800 text-slate-500"
+                      }`}
                   >
                     {cat.count}
                   </span>
@@ -202,20 +200,18 @@ export default function PanduanPSPage() {
               {filteredPanduan.map((item) => (
                 <div
                   key={item.id}
-                  className={`bg-slate-900/40 border rounded-xl sm:rounded-2xl p-5 sm:p-7 backdrop-blur-sm shadow-xl transition-all duration-300 ${
-                    item.isWarning
+                  className={`bg-slate-900/40 border rounded-xl sm:rounded-2xl p-5 sm:p-7 backdrop-blur-sm shadow-xl transition-all duration-300 ${item.isWarning
                       ? "border-red-500/40 bg-red-950/10 hover:border-red-500/70"
                       : "border-white/10 hover:border-rog-red/40"
-                  }`}
+                    }`}
                 >
                   <div className="flex items-center justify-between gap-2 mb-3">
                     <div className="flex items-center gap-2">
                       <span
-                        className={`px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-md text-[9px] sm:text-[10px] font-sans font-black uppercase tracking-wider ${
-                          item.isWarning
+                        className={`px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-md text-[9px] sm:text-[10px] font-sans font-black uppercase tracking-wider ${item.isWarning
                             ? "bg-red-600/20 text-red-400 border border-red-500/40"
                             : "bg-rog-red/10 text-rog-red border border-rog-red/30"
-                        }`}
+                          }`}
                       >
                         {item.badge}
                       </span>
@@ -269,7 +265,7 @@ export default function PanduanPSPage() {
                 {language === "en" ? "Guide Not Found" : "Panduan Tidak Ditemukan"}
               </h3>
               <p className="text-slate-500 text-xs font-sans max-w-md mx-auto mb-4">
-                {language === "en" 
+                {language === "en"
                   ? `Sorry, we could not find topics matching "${searchQuery}". Try another keyword or contact our support.`
                   : `Maaf, kami tidak dapat menemukan topik dengan kata kunci "${searchQuery}". Coba cari kata kunci lain atau hubungi tim bantuan kami.`}
               </p>
@@ -285,7 +281,7 @@ export default function PanduanPSPage() {
           {/* Direct Support Banner */}
           <div className="mt-12 sm:mt-16 bg-gradient-to-r from-slate-900 via-rog-red/20 to-slate-900 border border-rog-red/40 rounded-xl sm:rounded-2xl p-5 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-6 relative overflow-hidden shadow-2xl">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(238,0,3,0.1),transparent)] pointer-events-none" />
-            
+
             <div className="space-y-1.5 sm:space-y-2 text-center md:text-left relative z-10">
               <div className="inline-flex items-center gap-1.5 text-rog-red font-display text-[10px] sm:text-xs font-bold tracking-widest uppercase">
                 <MessageCircle size={14} className="sm:w-4 sm:h-4" />
@@ -300,7 +296,7 @@ export default function PanduanPSPage() {
             </div>
 
             <a
-              href="https://wa.me/6281234567890?text=Halo%20Admin,%20saya%20butuh%20bantuan%20mengenai%20Panduan%20Sewa%20dan%20Operasional%20Konsol"
+              href="https://wa.me/6282142745084"
               target="_blank"
               rel="noopener noreferrer"
               className="relative z-10 w-full sm:w-auto flex-shrink-0 inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-rog-red hover:bg-[#ff1a35] text-white font-display font-bold text-xs tracking-widest uppercase rounded-xl transition-all shadow-lg shadow-rog-red/30 hover:scale-105 active:scale-95 cursor-pointer"

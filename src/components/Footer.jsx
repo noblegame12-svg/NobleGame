@@ -66,7 +66,7 @@ export default function Footer() {
             <ul className="space-y-1.5 text-xs text-slate-500 font-sans">
               <li><a href="/panduan-ps" className="hover:text-white hover:underline transition-colors text-rog-red font-semibold">{t("footer.psGuide")}</a></li>
               <li><a href="/#faq" className="hover:text-white hover:underline transition-colors">{t("footer.faqQna")}</a></li>
-              <li><a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:underline transition-colors">{t("footer.contactSupport")}</a></li>
+              <li><a href="https://wa.me/6282142745084" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:underline transition-colors">{t("footer.contactSupport")}</a></li>
               <li><a href="#" className="hover:text-white hover:underline transition-colors">{t("footer.warrantyClaim")}</a></li>
               <li><a href="#" className="hover:text-white hover:underline transition-colors">{t("footer.termsOfService")}</a></li>
             </ul>

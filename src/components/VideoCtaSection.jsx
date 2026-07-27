@@ -25,7 +25,7 @@ export default function VideoCtaSection() {
           Buy <span className="video-cta-or">or</span> Rent
         </h2>
         <a
-          href="https://wa.me/YOUR_PHONE_NUMBER"
+          href="https://wa.me/6282142745084"
           target="_blank"
           rel="noopener noreferrer"
           className="video-cta-link"
