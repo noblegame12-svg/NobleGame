@@ -23,6 +23,7 @@ export const metadata = {
 };
 
 import { LanguageProvider } from "@/context/LanguageContext";
+import LoadingScreen from "@/components/LoadingScreen";
 
 export default function RootLayout({ children }) {
   return (
@@ -31,6 +32,7 @@ export default function RootLayout({ children }) {
       className={`${orbitron.variable} ${inter.variable} ${alexBrush.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-slate-950 text-slate-100 font-sans">
+        <LoadingScreen />
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>

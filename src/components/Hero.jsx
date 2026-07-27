@@ -105,7 +105,7 @@ export default function Hero({ onShopClick }) {
           </h1>
 
           <p className="max-w-xl text-slate-400 text-sm sm:text-base leading-relaxed font-sans font-normal">
-            Play anywhere, dominate everywhere. A premium military-grade gaming case with a built-in 24&quot; 144Hz monitor and dual cooling. Just plug and play.
+            Play anywhere, dominate everywhere. A premium military-grade gaming case with a built-in 24&quot; monitor and dual cooling. Just plug and play.
           </p>
 
           {/* Action text links - BELI & SEWA */}

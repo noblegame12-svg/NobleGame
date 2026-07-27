@@ -1,16 +1,37 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X, Globe } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar({ cartCount, onCartToggle }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const { language, setLanguage, t } = useLanguage();
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="w-full z-50 absolute top-0 left-0 bg-transparent">
+    <header
+      className={`w-full z-50 fixed top-0 left-0 transition-all duration-300 border-none ${
+        isScrolled || isMobileMenuOpen
+          ? "bg-[#08080c]/90 backdrop-blur-md shadow-xl py-0"
+          : "bg-transparent py-0"
+      }`}
+    >
       {/* Top Bar (Desktop) */}
       <div className="hidden md:flex w-full bg-transparent text-[11px] font-sans tracking-widest uppercase text-slate-400 py-3.5 px-6 lg:px-16 justify-between items-center">
         <div className="flex gap-6 items-center">
@@ -92,7 +113,7 @@ export default function Navbar({ cartCount, onCartToggle }) {
 
       {/* Mobile Drawer Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden w-full bg-[#08080c]/95 backdrop-blur-xl border-b border-white/10 px-6 py-6 transition-all animate-fadeIn">
+        <div className="md:hidden w-full bg-[#08080c]/95 backdrop-blur-xl border-none px-6 py-6 transition-all animate-fadeIn">
           {/* Mobile Language Switcher */}
           <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
             <span className="text-xs text-slate-400 flex items-center gap-1.5 font-sans uppercase tracking-wider">
