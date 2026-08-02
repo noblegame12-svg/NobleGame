@@ -1,11 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import ColorBends from './ColorBends';
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function ProductShowcase() {
   const { t } = useLanguage();
+  const [activeTab, setActiveTab] = useState("chassis"); // "chassis" | "bundle"
 
   return (
     <section id="product-showcase" className="relative w-full bg-[#08080c] py-24 px-6 lg:px-16 border-b border-white/5 overflow-hidden">
@@ -80,27 +82,90 @@ export default function ProductShowcase() {
           </div>
         </div>
 
+        {/* View Switcher / Option Tabs */}
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-6 relative z-20">
+          <button
+            onClick={() => setActiveTab("chassis")}
+            className={`px-5 py-2 rounded-full text-xs font-display font-bold tracking-wider uppercase transition-all duration-300 cursor-pointer flex items-center gap-2 ${
+              activeTab === "chassis"
+                ? "bg-rog-red text-white shadow-lg shadow-rog-red/30 scale-105"
+                : "bg-white/5 text-slate-400 hover:text-white hover:bg-white/10"
+            }`}
+          >
+            <span>Box & Monitor</span>
+            <span className={`text-[10px] px-2 py-0.5 rounded-full ${activeTab === "chassis" ? "bg-black/30 text-white" : "bg-white/10 text-slate-300"}`}>
+              Rp 3,5 Jt
+            </span>
+          </button>
+          <button
+            onClick={() => setActiveTab("bundle")}
+            className={`px-5 py-2 rounded-full text-xs font-display font-bold tracking-wider uppercase transition-all duration-300 cursor-pointer flex items-center gap-2 ${
+              activeTab === "bundle"
+                ? "bg-rog-red text-white shadow-lg shadow-rog-red/30 scale-105"
+                : "bg-white/5 text-slate-400 hover:text-white hover:bg-white/10"
+            }`}
+          >
+            <span>Full Setup</span>
+            <span className={`text-[10px] px-2 py-0.5 rounded-full ${activeTab === "bundle" ? "bg-black/30 text-white" : "bg-white/10 text-slate-300"}`}>
+              Rp 8,5 Jt
+            </span>
+          </button>
+          <button
+            onClick={() => setActiveTab("rent")}
+            className={`px-5 py-2 rounded-full text-xs font-display font-bold tracking-wider uppercase transition-all duration-300 cursor-pointer flex items-center gap-2 ${
+              activeTab === "rent"
+                ? "bg-rog-red text-white shadow-lg shadow-rog-red/30 scale-105"
+                : "bg-white/5 text-slate-400 hover:text-white hover:bg-white/10"
+            }`}
+          >
+            <span>Sewa</span>
+            <span className={`text-[10px] px-2 py-0.5 rounded-full flex items-center gap-1 ${activeTab === "rent" ? "bg-black/30 text-white" : "bg-white/10 text-slate-300"}`}>
+              <span className="line-through opacity-70">120rb</span>
+              <span className="text-emerald-400 font-extrabold">110rb</span>
+            </span>
+          </button>
+        </div>
+
         {/* Product Price Display (Mobile Only) */}
         <div className="flex flex-col items-center justify-center mb-6 relative z-20 group cursor-default select-none hover:scale-105 transition-transform duration-300 ease-out md:hidden">
           <span className="text-[10px] sm:text-xs font-sans font-black tracking-[0.25em] text-slate-500 uppercase group-hover:text-slate-400 transition-colors duration-300">
-            {t("productShowcase.priceTagline")}
+            {activeTab === "rent" ? "PROMO SEWA HARIAN" : t("productShowcase.priceTagline")}
           </span>
-          <div className="flex items-baseline gap-0.5 mt-1">
-            <span className="text-xl sm:text-2xl font-display font-black text-rog-red transition-all duration-300 group-hover:text-rog-red-hover group-hover:scale-110">$</span>
-            <span className="text-5xl sm:text-7xl font-display font-black tracking-tight text-white neon-text-red transition-all duration-300 group-hover:text-white">899</span>
-            <span className="text-lg sm:text-xl font-display font-bold text-slate-400 transition-all duration-300 group-hover:text-slate-300">.00</span>
-          </div>
+          {activeTab === "rent" ? (
+            <div className="flex flex-col items-center mt-1">
+              <div className="flex items-center gap-1 text-slate-500 font-display font-semibold text-xs sm:text-sm line-through opacity-75">
+                <span>Rp</span>
+                <span>120.000</span>
+                <span className="text-[9px] uppercase font-sans tracking-wider">/ Hari</span>
+              </div>
+              <div className="flex items-baseline gap-1 mt-0.5">
+                <span className="text-xl sm:text-2xl font-display font-black text-rog-red transition-all duration-300 group-hover:text-rog-red-hover group-hover:scale-110">Rp</span>
+                <span className="text-5xl sm:text-7xl font-display font-black tracking-tight text-white neon-text-red transition-all duration-300 group-hover:text-white">
+                  110
+                </span>
+                <span className="text-lg sm:text-xl font-display font-bold text-slate-400 transition-all duration-300 group-hover:text-slate-300">RIBU / HARI</span>
+              </div>
+            </div>
+          ) : (
+            <div className="flex items-baseline gap-1 mt-1">
+              <span className="text-xl sm:text-2xl font-display font-black text-rog-red transition-all duration-300 group-hover:text-rog-red-hover group-hover:scale-110">Rp</span>
+              <span className="text-5xl sm:text-7xl font-display font-black tracking-tight text-white neon-text-red transition-all duration-300 group-hover:text-white">
+                {activeTab === "chassis" ? "3,5" : "8,5"}
+              </span>
+              <span className="text-lg sm:text-xl font-display font-bold text-slate-400 transition-all duration-300 group-hover:text-slate-300">JUTA</span>
+            </div>
+          )}
           <div className="w-16 h-[2px] bg-gradient-to-r from-transparent via-rog-red to-transparent mt-3 transition-all duration-300 group-hover:w-28 group-hover:via-rog-red-hover" />
         </div>
 
         {/* Product Image Wrapper */}
         <div className="relative w-full max-w-6xl aspect-[16/9] flex items-center justify-center py-2 sm:py-4">
-          <div className="relative w-full h-full scale-110 sm:scale-115 transition-transform duration-500">
+          <div className="relative w-full h-full scale-110 sm:scale-115 transition-all duration-500">
             <Image
-              src="/Product noBG.webp"
-              alt="Premium Playstation Box Product"
+              src={activeTab === "chassis" ? "/box_dan_monitor_nobg.webp" : "/Product noBG.webp"}
+              alt={activeTab === "chassis" ? "Playstation Box & Monitor" : "Premium Playstation Box Product Setup"}
               fill
-              className="object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.7)]"
+              className="object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.7)] transition-opacity duration-300"
               priority
               sizes="(max-w-1200px) 100vw, 95vw"
             />
@@ -109,13 +174,32 @@ export default function ProductShowcase() {
           {/* Product Price Display (Desktop Only) */}
           <div className="hidden md:flex absolute right-4 md:right-8 lg:right-16 top-1/2 -translate-y-1/2 z-20 flex-col items-center justify-center group cursor-default select-none hover:scale-105 transition-transform duration-300 ease-out">
             <span className="text-[10px] font-sans font-black tracking-[0.25em] text-slate-500 uppercase group-hover:text-slate-400 transition-colors duration-300">
-              {t("productShowcase.priceTagline")}
+              {activeTab === "rent" ? "PROMO SEWA HARIAN" : t("productShowcase.priceTagline")}
             </span>
-            <div className="flex items-baseline gap-0.5 mt-1">
-              <span className="text-xl lg:text-2xl font-display font-black text-rog-red transition-all duration-300 group-hover:text-rog-red-hover group-hover:scale-110">$</span>
-              <span className="text-5xl lg:text-7xl font-display font-black tracking-tight text-white neon-text-red transition-all duration-300 group-hover:text-white">899</span>
-              <span className="text-lg lg:text-xl font-display font-bold text-slate-400 transition-all duration-300 group-hover:text-slate-300">.00</span>
-            </div>
+            {activeTab === "rent" ? (
+              <div className="flex flex-col items-center mt-1">
+                <div className="flex items-center gap-1 text-slate-500 font-display font-semibold text-sm lg:text-base line-through opacity-75">
+                  <span>Rp</span>
+                  <span>120.000</span>
+                  <span className="text-[10px] uppercase font-sans tracking-wider">/ Hari</span>
+                </div>
+                <div className="flex items-baseline gap-1 mt-0.5">
+                  <span className="text-xl lg:text-2xl font-display font-black text-rog-red transition-all duration-300 group-hover:text-rog-red-hover group-hover:scale-110">Rp</span>
+                  <span className="text-5xl lg:text-7xl font-display font-black tracking-tight text-white neon-text-red transition-all duration-300 group-hover:text-white">
+                    110
+                  </span>
+                  <span className="text-lg lg:text-xl font-display font-bold text-slate-400 transition-all duration-300 group-hover:text-slate-300">RIBU / HARI</span>
+                </div>
+              </div>
+            ) : (
+              <div className="flex items-baseline gap-1 mt-1">
+                <span className="text-xl lg:text-2xl font-display font-black text-rog-red transition-all duration-300 group-hover:text-rog-red-hover group-hover:scale-110">Rp</span>
+                <span className="text-5xl lg:text-7xl font-display font-black tracking-tight text-white neon-text-red transition-all duration-300 group-hover:text-white">
+                  {activeTab === "chassis" ? "3,5" : "8,5"}
+                </span>
+                <span className="text-lg lg:text-xl font-display font-bold text-slate-400 transition-all duration-300 group-hover:text-slate-300">JUTA</span>
+              </div>
+            )}
             <div className="w-16 h-[2px] bg-gradient-to-r from-transparent via-rog-red to-transparent mt-3 transition-all duration-300 group-hover:w-28 group-hover:via-rog-red-hover" />
           </div>
         </div>
