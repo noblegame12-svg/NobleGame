@@ -47,61 +47,36 @@ export default function LoadingScreen() {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex flex-col justify-between items-center bg-[#08080c] text-white select-none transition-opacity duration-600 ease-out ${
+      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#08080c] text-white select-none transition-opacity duration-500 ease-out ${
         isFadingOut ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
     >
-      {/* Background Cyber Grid Pattern */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none" />
-
-      {/* Top spacing element for flex centering */}
-      <div className="w-full h-12" />
-
-      {/* Center Content: Logo + Brand + Progress */}
-      <div className="relative z-10 flex flex-col items-center justify-center px-4 text-center">
-        {/* Noble Game Logo (Clean standalone logo, no card shape or background rings) */}
-        <div className="mb-2">
-          <img
-            src="/Noble Game White.webp"
-            alt="Noble Game Logo"
-            className="w-28 h-28 sm:w-36 sm:h-36 object-contain"
-          />
-        </div>
-
-        {/* Brand Name */}
-        <h1 className="font-display font-black text-2xl sm:text-3xl lg:text-4xl tracking-widest uppercase text-white">
+      {/* Center Content: Logo + Brand Side by Side */}
+      <div className="flex items-center justify-center gap-2.5 sm:gap-3.5 px-4 text-center">
+        <img
+          src="/Noble Game White.webp"
+          alt="Noble Game Logo"
+          className="h-6 sm:h-8 w-auto object-contain flex-shrink-0"
+        />
+        <h1 className="font-display font-black text-xs sm:text-sm tracking-widest uppercase text-white leading-none">
           NOBLE GAME
         </h1>
-
-        {/* Progress Bar Container */}
-        <div className="w-64 sm:w-80 mt-4 space-y-2">
-          {/* Bar track */}
-          <div className="relative w-full h-1.5 bg-slate-900 rounded-full overflow-hidden border border-white/10">
-            {/* Solid White Progress Bar */}
-            <div
-              className="h-full bg-white transition-all duration-75 ease-out shadow-[0_0_10px_rgba(255,255,255,0.5)]"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-
-          {/* Progress Percentage */}
-          <div className="flex justify-between items-center text-[10px] font-mono text-slate-400 uppercase tracking-widest px-1">
-            <span>LOADING</span>
-            <span className="text-white font-bold">{progress}%</span>
-          </div>
-        </div>
       </div>
 
-      {/* Bottom Footer Credits - Design by webteam.dev */}
-      <div className="relative z-10 pb-8 flex items-center justify-center gap-1.5 text-xs sm:text-sm font-sans tracking-wide text-slate-400">
-        <span className="text-slate-400 font-normal">Design by</span>
+      {/* Percentage Counter + webteam.dev in Bottom Right Corner */}
+      <div className="absolute bottom-6 right-6 sm:bottom-8 sm:right-10 flex flex-col items-end pointer-events-auto select-none">
+        <div className="flex items-baseline leading-none font-display font-bold text-3xl sm:text-5xl text-white tracking-tight tabular-nums opacity-90">
+          <span>{progress}</span>
+          <span className="text-rog-red text-lg sm:text-2xl font-bold ml-0.5">%</span>
+        </div>
+
         <a
           href="https://webteam.dev"
           target="_blank"
           rel="noopener noreferrer"
-          className="font-semibold tracking-wider text-slate-200 hover:text-white hover:underline underline-offset-4 decoration-white transition-colors"
+          className="mt-1 text-[10px] sm:text-xs font-sans tracking-wider text-slate-400 hover:text-white transition-colors font-medium"
         >
-          webteam.dev
+          Webteam.dev
         </a>
       </div>
     </div>
