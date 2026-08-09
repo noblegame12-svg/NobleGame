@@ -2,48 +2,25 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ChevronDown, BookOpen, ArrowRight } from "lucide-react";
+import { ChevronDown, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 function PanduanItem({ item, isOpen, onToggle }) {
   return (
-    <div
-      className={`group border rounded-lg overflow-hidden transition-all duration-300 ${
-        item.isWarning
-          ? isOpen
-            ? "border-red-500/40 bg-red-950/20"
-            : "border-red-500/20 bg-red-950/10 hover:border-red-500/40"
-          : isOpen
-          ? "border-rog-red/40 bg-rog-red/5"
-          : "border-white/5 bg-white/[0.01] hover:border-white/10 hover:bg-white/[0.02]"
-      }`}
-    >
+    <div className="border-b border-white/10 last:border-b-0 py-3.5 transition-colors">
       <button
         onClick={onToggle}
         id={item.id}
-        className="w-full flex items-center justify-between gap-3 px-4 py-3 text-left cursor-pointer"
+        className="w-full flex items-center justify-between gap-3 text-left cursor-pointer group py-1"
         aria-expanded={isOpen}
       >
-        <div className="flex items-center gap-2.5 min-w-0">
-          <span
-            className={`flex-shrink-0 w-6 h-6 rounded flex items-center justify-center text-[10px] font-display font-black transition-all duration-300 ${
-              item.isWarning
-                ? "bg-red-600 text-white"
-                : isOpen
-                ? "bg-rog-red text-white"
-                : "bg-slate-800/80 text-slate-400 group-hover:bg-slate-700"
-            }`}
-          >
-            <BookOpen size={11} />
-          </span>
-          <span
-            className={`font-sans font-medium text-xs sm:text-sm leading-snug transition-colors duration-300 ${
-              isOpen ? "text-white" : "text-slate-300 group-hover:text-white"
-            }`}
-          >
-            {item.question}
-          </span>
-        </div>
+        <span
+          className={`font-sans font-semibold text-xs sm:text-sm leading-snug transition-colors duration-300 flex-1 pr-2 ${
+            isOpen ? "text-white" : "text-slate-300 group-hover:text-white"
+          }`}
+        >
+          {item.question}
+        </span>
         <span
           className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center transition-all duration-300 ${
             isOpen
@@ -63,7 +40,7 @@ function PanduanItem({ item, isOpen, onToggle }) {
           overflow: "hidden",
         }}
       >
-        <div className="px-4 pb-3.5 pl-11">
+        <div className="pt-2 pb-2 pl-9 pr-2">
           <p className="text-slate-400 text-xs sm:text-[13px] leading-relaxed font-sans">
             {item.answer}
           </p>

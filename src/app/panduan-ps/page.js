@@ -16,7 +16,8 @@ import {
   Check,
   Tag,
   AlertTriangle,
-  Tv
+  Tv,
+  ChevronDown
 } from "lucide-react";
 
 export default function PanduanPSPage() {
@@ -25,6 +26,7 @@ export default function PanduanPSPage() {
   const [activeTab, setActiveTab] = useState("semua");
   const [searchQuery, setSearchQuery] = useState("");
   const [copiedId, setCopiedId] = useState(null);
+  const [openId, setOpenId] = useState(null);
   const { language, t } = useLanguage();
 
   // Cart handling
@@ -201,66 +203,101 @@ export default function PanduanPSPage() {
 
               {/* Guides List */}
               {filteredPanduan.length > 0 ? (
-                <div className="space-y-4 sm:space-y-6">
-                  {filteredPanduan.map((item) => (
-                    <div
-                      key={item.id}
-                      className={`bg-white border rounded-xl sm:rounded-2xl p-5 sm:p-7 shadow-xl transition-all duration-300 ${item.isWarning
-                          ? "border-red-300 bg-red-50/40 hover:border-red-400"
-                          : "border-slate-200 hover:border-rog-red/40"
-                        }`}
-                    >
-                      <div className="flex items-center justify-between gap-2 mb-3">
-                        <div className="flex items-center gap-2">
+                <div className="bg-white border border-slate-200/80 rounded-2xl p-5 sm:p-7 shadow-sm divide-y divide-slate-200/80">
+                  {filteredPanduan.map((item) => {
+                    const isOpen = openId === item.id;
+                    return (
+                      <div
+                        key={item.id}
+                        className="py-4.5 first:pt-0 last:pb-0 transition-colors"
+                      >
+                        <button
+                          onClick={() => setOpenId(isOpen ? null : item.id)}
+                          className="w-full text-left flex items-start justify-between gap-4 group cursor-pointer py-1 focus:outline-none"
+                          aria-expanded={isOpen}
+                        >
+                          <div className="space-y-1 flex-1 pr-2">
+                            {/* Small Elegant Tag & Label */}
+                            <div className="flex items-center gap-2">
+                              <span
+                                className={`inline-block text-[9px] font-sans font-bold uppercase tracking-widest ${
+                                  item.isWarning ? "text-red-500" : "text-rog-red"
+                                }`}
+                              >
+                                {item.badge}
+                              </span>
+                              {item.isWarning && (
+                                <span className="text-[9px] text-red-500 font-bold bg-red-50 border border-red-200/60 px-1.5 py-0.2 rounded">
+                                  {language === "en" ? "PROHIBITED" : "DILARANG"}
+                                </span>
+                              )}
+                              <span className="text-slate-400 text-[9px] font-mono font-medium ml-auto sm:ml-0">
+                                FAQ // #{item.num}
+                              </span>
+                            </div>
+
+                            <h3 className="font-sans font-bold text-sm sm:text-base text-slate-900 group-hover:text-rog-red transition-colors uppercase tracking-tight leading-snug">
+                              {item.num}. {item.title}
+                            </h3>
+                          </div>
+
                           <span
-                            className={`inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-sans font-black uppercase tracking-wider ${item.isWarning ? "text-red-600" : "text-rog-red"
-                              }`}
+                            className={`flex-shrink-0 mt-0.5 w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${
+                              isOpen
+                                ? "bg-rog-red text-white rotate-180 shadow-md shadow-rog-red/20"
+                                : "bg-slate-100 text-slate-500 group-hover:bg-slate-200 group-hover:text-slate-900"
+                            }`}
                           >
-                            {item.isWarning ? <AlertTriangle size={14} /> : <Tag size={14} />}
-                            <span>{item.badge}</span>
+                            <ChevronDown size={14} />
                           </span>
-                          {item.isWarning && (
-                            <span className="inline-flex items-center gap-1 text-[10px] text-red-600 font-bold ml-1">
-                              • {language === "en" ? "PROHIBITED" : "DILARANG"}
-                            </span>
-                          )}
+                        </button>
+
+                        {/* Expandable Answer Section */}
+                        <div
+                          className={`grid transition-all duration-300 ease-in-out overflow-hidden ${
+                            isOpen ? "grid-rows-[1fr] opacity-100 pt-3 pb-1" : "grid-rows-[0fr] opacity-0"
+                          }`}
+                        >
+                          <div className="overflow-hidden">
+                            <div className={`p-4 sm:p-5 rounded-xl font-sans text-xs sm:text-sm leading-relaxed ${
+                              item.isWarning
+                                ? "bg-red-50/60 border border-red-200/80 text-slate-800"
+                                : "bg-slate-50 border border-slate-200/70 text-slate-700"
+                            }`}>
+                              <p className="whitespace-pre-line">{item.answer}</p>
+
+                              <div className="mt-3.5 pt-3 border-t border-slate-200/80 flex items-center justify-between gap-2">
+                                <span className="text-[10px] text-slate-500 font-sans">
+                                  {language === "en"
+                                    ? "Have further questions? Contact our support."
+                                    : "Punya pertanyaan lanjutan? Hubungi support kami."}
+                                </span>
+                                <button
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleCopyText(`${item.title}\n${item.answer}`, item.id);
+                                  }}
+                                  className="inline-flex items-center gap-1.5 text-[10px] text-slate-500 hover:text-slate-900 transition-colors font-sans cursor-pointer py-1 px-2.5 bg-white rounded border border-slate-200/80 shadow-2xs"
+                                >
+                                  {copiedId === item.id ? (
+                                    <>
+                                      <Check size={12} className="text-emerald-600" />
+                                      <span className="text-emerald-600 font-semibold">{t("panduanPage.copied")}</span>
+                                    </>
+                                  ) : (
+                                    <>
+                                      <Copy size={12} />
+                                      <span>{t("panduanPage.copyLink")}</span>
+                                    </>
+                                  )}
+                                </button>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                        <span className="text-slate-400 text-[10px] sm:text-xs font-mono font-semibold">
-                          FAQ // #{item.num}
-                        </span>
                       </div>
-
-                      <h3 className="font-sans font-bold text-base sm:text-lg text-slate-900 uppercase tracking-tight mb-3">
-                        {item.num}. {item.title}
-                      </h3>
-
-                      <div className="bg-slate-50 border border-slate-200/80 rounded-xl p-4 text-xs sm:text-sm text-slate-700 font-sans leading-relaxed">
-                        <p className="whitespace-pre-line">{item.answer}</p>
-
-                        <div className="mt-3 pt-3 border-t border-slate-200 flex items-center justify-between">
-                          <span className="text-[10px] text-slate-400 font-sans">
-                            {language === "en" ? "Have further questions? Contact our support." : "Punya pertanyaan lanjutan? Hubungi support kami."}
-                          </span>
-                          <button
-                            onClick={() => handleCopyText(`${item.title}\n${item.answer}`, item.id)}
-                            className="inline-flex items-center gap-1.5 text-[10px] text-slate-500 hover:text-slate-900 transition-colors font-sans cursor-pointer py-1"
-                          >
-                            {copiedId === item.id ? (
-                              <>
-                                <Check size={12} className="text-emerald-600" />
-                                <span className="text-emerald-600">{t("panduanPage.copied")}</span>
-                              </>
-                            ) : (
-                              <>
-                                <Copy size={12} />
-                                <span>{t("panduanPage.copyLink")}</span>
-                              </>
-                            )}
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               ) : (
                 <div className="text-center py-12 sm:py-16 bg-white border border-slate-200 rounded-2xl p-4 shadow-md">

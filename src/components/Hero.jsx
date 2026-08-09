@@ -3,10 +3,12 @@
 import { useEffect, useRef } from "react";
 
 import dynamic from "next/dynamic";
+import { useLanguage } from "@/context/LanguageContext";
 
 const SideRays = dynamic(() => import("./SideRays"), { ssr: false });
 
 export default function Hero({ onShopClick }) {
+  const { t } = useLanguage();
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -88,24 +90,21 @@ export default function Hero({ onShopClick }) {
       <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-rog-red/10 blur-[150px] pointer-events-none z-0"></div>
       <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] rounded-full bg-cyber-purple/10 blur-[180px] pointer-events-none z-0"></div>
 
-
-
       {/* Hero content container */}
       <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
 
         {/* Left Column - Product details */}
         <div className="lg:col-span-7 flex flex-col items-start text-left space-y-6 lg:pr-12">
 
-
           <h1 className="font-display font-black text-4xl sm:text-5xl lg:text-7xl leading-[1.1] tracking-tight text-white uppercase">
             <span className="block text-slate-400 text-2xl sm:text-3xl lg:text-4xl font-normal normal-case italic tracking-wide font-sans mb-2">
-              Playstation Box
+              {t("hero.subtitle")}
             </span>
-            Level Up Your Moment
+            {t("hero.title")}
           </h1>
 
           <p className="max-w-xl text-slate-400 text-sm sm:text-base leading-relaxed font-sans font-normal">
-            Play anywhere, dominate everywhere. A premium military-grade gaming case with a built-in 24&quot; monitor and dual cooling. Just plug and play.
+            {t("hero.description")}
           </p>
 
           {/* Action text links - BELI & SEWA */}
@@ -115,7 +114,7 @@ export default function Hero({ onShopClick }) {
               className="hover:text-rog-red hover:neon-text-red transition-all duration-200 border-b-2 border-transparent hover:border-rog-red pb-1"
               id="hero-beli-link"
             >
-              BELI
+              {t("hero.buy")}
             </a>
             <span className="text-slate-700">|</span>
             <a
@@ -123,11 +122,10 @@ export default function Hero({ onShopClick }) {
               className="hover:text-rog-red hover:neon-text-red transition-all duration-200 border-b-2 border-transparent hover:border-rog-red pb-1"
               id="hero-sewa-link"
             >
-              SEWA
+              {t("hero.rent")}
             </a>
           </div>
         </div>
-
 
       </div>
     </section>

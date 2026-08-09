@@ -11,6 +11,13 @@ export const translations = {
       faqHelp: "FAQ & BANTUAN",
       contactUsWhatsapp: "CONTACT US (WHATSAPP)",
     },
+    hero: {
+      subtitle: "Playstation Box",
+      title: "Level Up Your Moment",
+      description: "Bermain di mana saja, kuasai di mana pun. Koper gaming kelas premium dengan monitor 25\" dan Televisi, juga terintegrasi dengan pendingin ganda. Cukup colok dan mainkan.",
+      buy: "BELI",
+      rent: "SEWA",
+    },
     categories: {
       box: {
         title: "BOX",
@@ -339,6 +346,13 @@ export const translations = {
       gallery: "GALLERY",
       faqHelp: "FAQ & HELP",
       contactUsWhatsapp: "CONTACT US (WHATSAPP)",
+    },
+    hero: {
+      subtitle: "Playstation Box",
+      title: "Level Up Your Moment",
+      description: "Play anywhere, dominate everywhere. A premium gaming case with a 25\" monitor and TV, also integrated with dual cooling. Just plug and play.",
+      buy: "BUY",
+      rent: "RENT",
     },
     categories: {
       box: {
